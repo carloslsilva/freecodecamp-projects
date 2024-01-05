@@ -1,13 +1,28 @@
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Layout } from './components/Layout'
 
-function App() {
-  return (
-    <>
-      <h1 className='font-sans text-9xl'>hello there</h1>
-      <FontAwesomeIcon icon={faArrowLeft} />
-    </>
-  )
-}
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      {
+        path: '/',
+        element: <h1>Home</h1>
+      },
+      {
+        path: 'calculator',
+        element: <h1>Calculator</h1>
+      },
+      {
+        path: 'pomodoro',
+        element: <h1>Pomodoro</h1>
+      },
+      {
+        path: 'quote-machine',
+        element: <h1>Quote Machine</h1>
+      }
+    ]
+  }
+])
 
-export default App
+export const App = () => <RouterProvider router={router} />
