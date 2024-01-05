@@ -5,6 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource-variable/open-sans':
+    specifier: 5.0.21
+    version: 5.0.21
+  '@fontsource/play':
+    specifier: 5.0.18
+    version: 5.0.18
+  '@fontsource/roboto':
+    specifier: 5.0.8
+    version: 5.0.8
   '@fortawesome/fontawesome-svg-core':
     specifier: 6.5.1
     version: 6.5.1
@@ -68,8 +77,8 @@ devDependencies:
     specifier: 0.5.10
     version: 0.5.10(prettier@3.1.1)
   tailwindcss:
-    specifier: 3.4.0
-    version: 3.4.0
+    specifier: 3.4.1
+    version: 3.4.1
   vite:
     specifier: 5.0.11
     version: 5.0.11
@@ -329,6 +338,18 @@ packages:
     resolution: {integrity: sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fontsource-variable/open-sans@5.0.21:
+    resolution: {integrity: sha512-aLE1iTSx2J0NZw3capyh19GALUXiELEG4bgwABELVaZdeRHMTU5aApHa+KRC9KlfH0DzaDDLB5aSQBAOhy/R5Q==}
+    dev: false
+
+  /@fontsource/play@5.0.18:
+    resolution: {integrity: sha512-sWCVWG3NToev8kTzzafME5CtbVXfLP14ef7RuQoWBg8/BfEeRcKJiuvM6T2M3qnYFNldiHB1qm4w2N6muLcQAw==}
+    dev: false
+
+  /@fontsource/roboto@5.0.8:
+    resolution: {integrity: sha512-XxPltXs5R31D6UZeLIV1td3wTXU3jzd3f2DLsXI8tytMGBkIsGcc9sIyiupRtA8y73HAhuSCeweOoBqf6DbWCA==}
+    dev: false
 
   /@fortawesome/fontawesome-common-types@6.5.1:
     resolution: {integrity: sha512-GkWzv+L6d2bI5f/Vk6ikJ9xtl7dfXtoRu3YGE6nq0p/FFqA1ebMOAWg3XgRyb0I6LYyYkiAo+3/KrwuBp8xG7A==}
@@ -2572,8 +2593,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /tailwindcss@3.4.0:
-    resolution: {integrity: sha512-VigzymniH77knD1dryXbyxR+ePHihHociZbXnLZHUyzf2MMs2ZVqlUrZ3FvpXP8pno9JzmILt1sZPD19M3IxtA==}
+  /tailwindcss@3.4.1:
+    resolution: {integrity: sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:

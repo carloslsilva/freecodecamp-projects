@@ -1,3 +1,6 @@
+import '@fontsource-variable/open-sans'
+import '@fontsource/play'
+import '@fontsource/roboto'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
