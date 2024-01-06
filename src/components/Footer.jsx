@@ -35,7 +35,7 @@ const CONTACTS = [
   },
   {
     href: 'https://www.youtube.com/channel/UCD0Spg-lYsdrP_nE7Qfca3w',
-    label: 'Youtube',
+    label: 'YouTube',
     className: 'text-brand-youtube',
     icon: faYoutube
   }

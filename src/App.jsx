@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Layout } from './components/Layout'
+import { Calculator } from './components/calculator'
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'calculator',
-        element: <h1>Calculator</h1>
+        element: <Calculator />
       },
       {
         path: 'pomodoro',
