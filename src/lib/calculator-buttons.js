@@ -1,4 +1,4 @@
-export const CALCULATOR_BUTTONS = [
+const digitButtons = [
   {
     id: 'zero',
     text: '0',
@@ -53,7 +53,10 @@ export const CALCULATOR_BUTTONS = [
     id: 'decimal',
     text: '.',
     className: 'bg-alpha row-start-4 col-start-3'
-  },
+  }
+]
+
+const operatorButtons = [
   {
     id: 'add',
     text: '+',
@@ -78,10 +81,28 @@ export const CALCULATOR_BUTTONS = [
     id: 'equals',
     text: '=',
     className: 'bg-gamma row-start-3 row-end-5 col-start-5'
-  },
-  {
-    id: 'clear',
-    text: 'C',
-    className: 'bg-beta row-start-1 row-end-3 col-start-5'
   }
 ]
+
+const cancelButton = {
+  id: 'clear',
+  text: 'C',
+  className: 'bg-beta row-start-1 row-end-3 col-start-5'
+}
+
+export const calculatorButtons = [
+  ...digitButtons,
+  ...operatorButtons,
+  cancelButton
+]
+
+export const isDigitButton = id =>
+  digitButtons.map(button => button.id).includes(id)
+
+export const isOperatorButton = id =>
+  operatorButtons.map(button => button.id).includes(id)
+
+export const getDigitValueFromId = id => {
+  const [button] = digitButtons.filter(button => button.id === id)
+  return button.text
+}
