@@ -137,55 +137,55 @@
 //     this.handleKeyPress = this.handleKeyPress.bind(this)
 //   }
 
-//   componentDidMount() {
-//     document.addEventListener('keydown', this.handleKeyPress)
-//   }
+// componentDidMount() {
+//   document.addEventListener('keydown', this.handleKeyPress)
+// }
 
-//   componentWillUnmount() {
-//     document.removeEventListener('keydown', this.handleKeyPress)
-//   }
+// componentWillUnmount() {
+//   document.removeEventListener('keydown', this.handleKeyPress)
+// }
 
-//   handleKeyPress(event) {
-//     const key = event.key.toUpperCase()
-//     switch (key) {
-//       case '9':
-//       case '7':
-//       case '8':
-//       case '6':
-//       case '5':
-//       case '4':
-//       case '3':
-//       case '2':
-//       case '1':
-//       case '0':
-//       case '.':
-//         const digitId = BUTTON.filter(e => e.text === key)
-//           .map(e => e.id)
-//           .toString()
-//         document.getElementById(digitId).click()
-//         break
-//       case '/':
-//         document.getElementById('divide').click()
-//         break
-//       case '*':
-//         document.getElementById('multiply').click()
-//         break
-//       case '-':
-//         document.getElementById('subtract').click()
-//         break
-//       case '+':
-//         document.getElementById('add').click()
-//         break
-//       case 'ENTER':
-//         document.getElementById('equals').click()
-//         break
-//       case 'ESCAPE':
-//         document.getElementById('clear').click()
-//         break
-//       default:
-//         break
-//     }
+// handleKeyPress(event) {
+//   const key = event.key.toUpperCase()
+//   switch (key) {
+//     case '9':
+//     case '7':
+//     case '8':
+//     case '6':
+//     case '5':
+//     case '4':
+//     case '3':
+//     case '2':
+//     case '1':
+//     case '0':
+//     case '.':
+//       const digitId = BUTTON.filter(e => e.text === key)
+//         .map(e => e.id)
+//         .toString()
+//       document.getElementById(digitId).click()
+//       break
+//     case '/':
+//       document.getElementById('divide').click()
+//       break
+//     case '*':
+//       document.getElementById('multiply').click()
+//       break
+//     case '-':
+//       document.getElementById('subtract').click()
+//       break
+//     case '+':
+//       document.getElementById('add').click()
+//       break
+//     case 'ENTER':
+//       document.getElementById('equals').click()
+//       break
+//     case 'ESCAPE':
+//       document.getElementById('clear').click()
+//       break
+//     default:
+//       break
 //   }
+// }
 
 //   handleClick(event) {
 //     event.preventDefault()
