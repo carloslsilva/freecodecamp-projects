@@ -1,5 +1,5 @@
+import { calculatorButtons } from '@/lib/calculatorButtons'
 import clsx from 'clsx'
-import { calculatorButtons } from '../../lib/calculator-buttons'
 
 export const ButtonPad = ({ onClick }) => (
   <div className='grid h-[250px] w-[300px] grid-cols-5 grid-rows-4 gap-2'>

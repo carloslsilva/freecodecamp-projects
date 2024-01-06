@@ -1,5 +1,5 @@
-import { useCalculator } from '../../lib/useCalculator'
-import { useCalculatorKeyPress } from '../../lib/useCalculatorKeyPress'
+import { useCalculator } from '@/hooks/useCalculator'
+import { useCalculatorKeyPress } from '@/hooks/useCalculatorKeyPress'
 import { ButtonPad } from './ButtonPad'
 import { Display } from './Display'
 

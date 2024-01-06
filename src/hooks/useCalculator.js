@@ -3,7 +3,7 @@ import {
   getDigitValueFromId,
   isDigitButton,
   isOperatorButton
-} from './calculator-buttons'
+} from '../lib/calculatorButtons'
 
 const MAX_DIGITS = 16
 // const MAX_INTEGER_ON_DISPLAY = 999999999999999

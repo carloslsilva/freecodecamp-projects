@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { calculatorButtons } from './calculator-buttons'
+import { calculatorButtons } from '../lib/calculatorButtons'
 
 export function useCalculatorKeyPress() {
   useEffect(() => {
