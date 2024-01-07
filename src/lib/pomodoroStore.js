@@ -1,5 +1,4 @@
 import { createStore } from '@reduxjs/toolkit'
-import { Provider } from 'react-redux'
 
 // Types
 const type = {
@@ -189,8 +188,4 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-const store = createStore(reducer)
-
-export const PomodoroProvider = ({ children }) => (
-  <Provider store={store}>{children}</Provider>
-)
+export const store = createStore(reducer)
