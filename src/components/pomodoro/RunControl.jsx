@@ -3,11 +3,11 @@ import { faPause, faPlay, faSync } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDispatch } from 'react-redux'
 
-export const RunControl = ({ onReset, containerClassName }) => {
+export const RunControl = ({ onReset }) => {
   const dispatch = useDispatch()
 
   return (
-    <div className={containerClassName}>
+    <div className='col-start-1 col-end-5 row-start-6'>
       <div className='flex h-full flex-row gap-2'>
         <button
           className='w-full rounded bg-alpha text-light hover:opacity-80'

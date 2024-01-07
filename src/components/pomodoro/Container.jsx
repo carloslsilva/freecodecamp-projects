@@ -97,29 +97,26 @@ export const Container = () => {
   }, [dispatch, timer.run])
 
   return (
-    <div className='pomodoro-container'>
-      <Display
-        parameters={parameters.timer}
-        containerClassName='pomodoro-timer-container'
-      />
+    <div className='grid h-[350px] w-[350px] grid-cols-4 grid-rows-6 gap-2 rounded border-2 border-alpha px-4 py-6'>
+      <Display parameters={parameters.timer} />
       <LengthControl
         parameters={parameters.control.length.session}
         length={length.session}
         increment={incrementSession}
         decrement={decrementSession}
-        containerClassName='pomodoro-session-length-container'
+        right
       />
       <LengthControl
         parameters={parameters.control.length.break}
         length={length.break}
         increment={incrementBreak}
         decrement={decrementBreak}
-        containerClassName='pomodoro-break-length-container'
+        left
       />
       <RunControl
+        containerClassName='col-start-1 col-end-5 row-start-6'
         parameters={parameters.control.run}
         onReset={() => alarmStop()}
-        containerClassName='pomodoro-run-control-container'
       />
       <audio
         src={parameters.audio.url}

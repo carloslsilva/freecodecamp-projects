@@ -5,7 +5,13 @@ export const LengthControl = props => {
   const { label } = props.parameters
 
   return (
-    <div className={clsx('flex flex-col gap-2', props.containerClassName)}>
+    <div
+      className={clsx(
+        props.right && 'col-start-1 col-end-3 row-start-4 row-end-6',
+        props.left && 'col-start-3 col-end-5 row-start-4 row-end-6',
+        'flex flex-col gap-2'
+      )}
+    >
       <div className='flex h-full flex-row items-center justify-around rounded bg-beta font-title text-[0.9rem] font-bold text-dark'>
         <div>{label.text}</div>
         <div>{props.length}</div>
