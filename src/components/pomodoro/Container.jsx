@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Display } from './Display'
 import { LengthControl } from './LengthControl'
 import { RunControl } from './RunControl'
-import './style.css'
 
 export const Container = () => {
   const parameters = {

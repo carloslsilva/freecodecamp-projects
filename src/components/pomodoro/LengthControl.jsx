@@ -1,6 +1,7 @@
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
+
 export const LengthControl = props => {
   const { label } = props.parameters
 
@@ -18,14 +19,14 @@ export const LengthControl = props => {
       </div>
       <div className='flex h-full flex-row gap-2'>
         <button
-          className='w-full rounded bg-beta text-dark'
+          className='w-full rounded bg-beta text-dark hover:opacity-80'
           onClick={props.increment}
           type='button'
         >
           <FontAwesomeIcon icon={faChevronUp} />
         </button>
         <button
-          className='w-full rounded bg-beta text-dark'
+          className='w-full rounded bg-beta text-dark hover:opacity-80'
           onClick={props.decrement}
           type='button'
         >
