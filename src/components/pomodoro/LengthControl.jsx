@@ -1,27 +1,29 @@
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import clsx from 'clsx'
 export const LengthControl = props => {
-  const { label, display, button } = props.parameters
+  const { label } = props.parameters
+
   return (
-    <div className={props.containerClassName}>
-      <div className='pomodoro-length-control-display pomodoro-background-color-yellow'>
-        <div id={label.id}>{label.text}</div>
-        <div id={display.id}>{props.length}</div>
+    <div className={clsx('flex flex-col gap-2', props.containerClassName)}>
+      <div className='flex h-full flex-row items-center justify-around rounded bg-beta font-title text-[0.9rem] font-bold text-dark'>
+        <div>{label.text}</div>
+        <div>{props.length}</div>
       </div>
-      <div className='pomodoro-button-group'>
+      <div className='flex h-full flex-row gap-2'>
         <button
-          type='button'
+          className='w-full rounded bg-beta text-dark'
           onClick={props.increment}
-          className='pomodoro-button pomodoro-background-color-yellow'
-          id={button.increment.id}
+          type='button'
         >
-          <i className='fas fa-chevron-up' />
+          <FontAwesomeIcon icon={faChevronUp} />
         </button>
         <button
-          type='button'
+          className='w-full rounded bg-beta text-dark'
           onClick={props.decrement}
-          className='pomodoro-button pomodoro-background-color-yellow'
-          id={button.decrement.id}
+          type='button'
         >
-          <i className='fas fa-chevron-down' />
+          <FontAwesomeIcon icon={faChevronDown} />
         </button>
       </div>
     </div>

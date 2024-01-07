@@ -1,30 +1,31 @@
 import { action } from '@/lib/pomodoroStore'
+import { faPause, faPlay, faSync } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDispatch } from 'react-redux'
 
-export const RunControl = props => {
-  const { startStop, reset } = props.parameters
+export const RunControl = ({ onReset, containerClassName }) => {
   const dispatch = useDispatch()
+
   return (
-    <div className={props.containerClassName}>
-      <div className='pomodoro-button-group'>
+    <div className={containerClassName}>
+      <div className='flex h-full flex-row gap-2'>
         <button
-          type='button'
+          className='w-full rounded bg-alpha text-light hover:opacity-80'
           onClick={() => dispatch(action.toggleRun())}
-          className='pomodoro-button pomodoro-background-color-purple'
-          id={startStop.id}
+          type='button'
         >
-          <i className='fas fa-play' /> <i className='fas fa-pause' />
+          <FontAwesomeIcon icon={faPlay} />
+          <FontAwesomeIcon icon={faPause} />
         </button>
         <button
-          type='button'
+          className='w-full rounded bg-gamma text-light hover:opacity-80'
           onClick={() => {
             dispatch(action.reset())
-            props.onReset()
+            onReset()
           }}
-          className='pomodoro-button pomodoro-background-color-red'
-          id={reset.id}
+          type='button'
         >
-          <i className='fas fa-sync' />
+          <FontAwesomeIcon icon={faSync} />
         </button>
       </div>
     </div>

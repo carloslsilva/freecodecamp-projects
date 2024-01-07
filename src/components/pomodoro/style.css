@@ -33,40 +33,7 @@
 }
 
 .pomodoro-timer-container {
-  padding-top: 0.3rem;
   grid-area: tm;
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--radius);
-}
-
-.pomodoro-timer-container > * {
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-items: center;
-}
-
-.pomodoro-timer-title {
-  flex-grow: 2;
-  font-size: 1.2rem;
-}
-
-.pomodoro-timer-label {
-  flex-grow: 1;
-  font-size: 1rem;
-}
-
-.pomodoro-timer-left {
-  flex-grow: 3;
-  font-family: var(--font-display);
-  font-size: 3.8rem;
-}
-
-.pomodoro-session-length-container,
-.pomodoro-break-length-container {
-  display: flex;
-  flex-direction: column;
 }
 
 .pomodoro-session-length-container {
