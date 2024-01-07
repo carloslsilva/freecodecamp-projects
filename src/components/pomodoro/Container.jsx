@@ -1,16 +1,12 @@
 import { action } from '@/lib/pomodoroStore'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useId } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Display } from './Display'
 import { LengthControl } from './LengthControl'
 import { RunControl } from './RunControl'
 
 export const Container = () => {
-  const audioParameters = {
-    url: 'https://goo.gl/65cBl1',
-    type: 'audio/wav',
-    id: 'beep'
-  }
+  const audioId = useId()
 
   const length = useSelector(state => state.length)
   const timer = useSelector(state => state.timer)
@@ -34,15 +30,15 @@ export const Container = () => {
   }
 
   const alarmPlay = useCallback(() => {
-    const alarm = document.getElementById(audioParameters.id)
+    const alarm = document.getElementById(audioId)
     alarm.play()
-  }, [audioParameters.id])
+  }, [audioId])
 
   const alarmStop = useCallback(() => {
-    const alarm = document.getElementById(audioParameters.id)
+    const alarm = document.getElementById(audioId)
     alarm.pause()
     alarm.currentTime = 0
-  }, [audioParameters.id])
+  }, [audioId])
 
   useEffect(() => {
     const interval = setTimeout(() => dispatch(action.tick()), 1000)
@@ -80,11 +76,7 @@ export const Container = () => {
           alarmStop()
         }}
       />
-      <audio
-        src={audioParameters.url}
-        type={audioParameters.type}
-        id={audioParameters.id}
-      />
+      <audio src='https://goo.gl/65cBl1' type='audio/wav' id={audioId} />
     </div>
   )
 }
