@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { Calculator } from './components/calculator'
+import { Pomodoro } from './components/pomodoro/Pomodoro'
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'pomodoro',
-        element: <h1>Pomodoro</h1>
+        element: <Pomodoro />
       },
       {
         path: 'quote-machine',

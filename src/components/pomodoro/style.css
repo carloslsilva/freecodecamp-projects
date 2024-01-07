@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Play|Open+Sans');
+
+:root {
+  --main-font: 'Roboto', sans-serif;
+}
+
+* {
+  font-family: var(--main-font);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Layout */
+.container {
+  max-width: 750px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  margin: auto;
+  flex-grow: 1;
+}
+
+/* Footer */
+.footer {
+  --font-contact-description: 'Open Sans', sans-serif;
+  --color-linkedin: #0077b5;
+  --color-github: #333;
+  --color-freecodecamp: darkgreen;
+  --color-twitter: #1da1f2;
+  --color-facebook: #3c5a99;
+  --color-youtube: #ff0000;
+}
+
+.footer-container {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-description {
+  font-family: var(--font-contact-description);
+  opacity: 0.4;
+}
+
+.footer-links-container {
+  margin-left: 1rem;
+}
+
+.footer-link {
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.linkedin {
+  color: var(--color-linkedin);
+}
+
+.github {
+  color: var(--color-github);
+}
+
+.freecodecamp {
+  color: var(--color-freecodecamp);
+}
+
+.twitter {
+  color: var(--color-twitter);
+}
+
+.facebook {
+  color: var(--color-facebook);
+}
+
+.youtube {
+  color: var(--color-youtube);
+}
+
+/* Pomodoro */
+.pomodoro-container {
+  --font-body: 'Roboto', sans-serif;
+  --font-display: 'Play', sans-serif;
+
+  --color-light: #fcf9ed;
+  --color-dark: #33313b;
+  --color-yellow: #ffba5a;
+  --color-red: #ff7657;
+  --color-purple: #665c84;
+
+  --gap: 8px;
+  --radius: 4px;
+
+  width: 350px;
+  height: 350px;
+  margin-top: 4rem;
+  padding: 2rem 1rem 1rem;
+  border: 2px solid var(--color-purple);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: var(--gap);
+  grid-template-areas:
+    'tm tm tm tm'
+    'tm tm tm tm'
+    'tm tm tm tm'
+    'sl sl bl bl'
+    'sl sl bl bl'
+    'rc rc rc rc';
+}
+
+.pomodoro-timer-container {
+  padding-top: 0.3rem;
+  grid-area: tm;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+}
+
+.pomodoro-timer-container > * {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.pomodoro-timer-title {
+  flex-grow: 2;
+  font-size: 1.2rem;
+}
+
+.pomodoro-timer-label {
+  flex-grow: 1;
+  font-size: 1rem;
+}
+
+.pomodoro-timer-left {
+  flex-grow: 3;
+  font-family: var(--font-display);
+  font-size: 3.8rem;
+}
+
+.pomodoro-session-length-container,
+.pomodoro-break-length-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pomodoro-session-length-container {
+  grid-area: sl;
+}
+
+.pomodoro-break-length-container {
+  grid-area: bl;
+}
+
+.pomodoro-run-control-container {
+  grid-area: rc;
+}
+
+.pomodoro-length-control-display {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: center;
+  margin-bottom: var(--gap);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.pomodoro-length-control-display > * {
+  margin: auto;
+}
+
+.pomodoro-button-group {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.pomodoro-button {
+  border: none;
+  border-radius: var(--radius);
+}
+
+.pomodoro-button:hover {
+  opacity: 0.8;
+}
+
+.pomodoro-button:focus {
+  outline: none;
+}
+
+.pomodoro-button:first-child {
+  width: 50%;
+  margin-right: calc(var(--gap) / 2);
+}
+
+.pomodoro-button:last-child {
+  width: 50%;
+  margin-left: calc(var(--gap) / 2);
+}
+
+.pomodoro-background-color-dark {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+.pomodoro-background-color-purple {
+  color: var(--color-light);
+  background-color: var(--color-purple);
+}
+
+.pomodoro-background-color-yellow {
+  color: var(--color-dark);
+  background-color: var(--color-yellow);
+}
+
+.pomodoro-background-color-red {
+  color: var(--color-light);
+  background-color: var(--color-red);
+}
+
+@media (max-width: 720px) {
+  .pomodoro-container {
+    padding: 2rem 0.8rem 1rem;
+    width: 300px;
+  }
+
+  .pomodoro-length-control-display {
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+}
