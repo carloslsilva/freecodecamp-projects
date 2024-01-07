@@ -1,4 +1,5 @@
 import { createStore } from '@reduxjs/toolkit'
+import { cloneObject, minutesToTicks } from './utils'
 
 // Types
 const type = {
@@ -69,9 +70,6 @@ const current = {
   break: 'break'
 }
 
-const minutesToTicks = minutes => minutes * 60
-const clone = obj => JSON.parse(JSON.stringify(obj))
-
 const initialState = {
   length: {
     session: limits.session.default,
@@ -89,7 +87,7 @@ const initialState = {
 
 const setSessionLength = (state, minutes) => {
   if (state.timer.run === false) {
-    const nextState = clone(state)
+    const nextState = cloneObject(state)
     nextState.length.session = minutes
     nextState.timer.ticks.session = minutesToTicks(minutes)
     return nextState
@@ -100,7 +98,7 @@ const setSessionLength = (state, minutes) => {
 
 const setBreakLength = (state, minutes) => {
   if (state.timer.run === false) {
-    const nextState = clone(state)
+    const nextState = cloneObject(state)
     nextState.length.break = minutes
     nextState.timer.ticks.break = minutesToTicks(minutes)
     return nextState
@@ -110,7 +108,7 @@ const setBreakLength = (state, minutes) => {
 }
 
 const toggleRun = state => {
-  const nextState = clone(state)
+  const nextState = cloneObject(state)
   nextState.timer.run = !nextState.timer.run
   return nextState
 }
@@ -119,7 +117,7 @@ const tick = state => {
   if (state.timer.run === true) {
     switch (state.timer.current) {
       case current.session: {
-        const nextState = clone(state)
+        const nextState = cloneObject(state)
         const tick = state.timer.ticks.session - 1
         nextState.timer.ticks.session =
           tick >= 0 ? tick : minutesToTicks(nextState.length.session)
@@ -127,7 +125,7 @@ const tick = state => {
         return nextState
       }
       case current.break: {
-        const nextState = clone(state)
+        const nextState = cloneObject(state)
         const tick = state.timer.ticks.break - 1
         nextState.timer.ticks.break =
           tick >= 0 ? tick : minutesToTicks(nextState.length.break)
@@ -174,7 +172,7 @@ const reducer = (state = initialState, action) => {
       return setBreakLength(state, minutes)
     }
     case type.reset: {
-      return clone(initialState)
+      return cloneObject(initialState)
     }
     case type.toggleRun: {
       return toggleRun(state)
