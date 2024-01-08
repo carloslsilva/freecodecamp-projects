@@ -144,6 +144,7 @@ const tick = state => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case type.sessionLengthIncrement: {
+      if (state.run === true) return state
       const minutes =
         state.length.session < limits.session.maximum
           ? state.length.session + 1
@@ -151,6 +152,7 @@ const reducer = (state = initialState, action) => {
       return setSessionLength(state, minutes)
     }
     case type.sessionLengthDecrement: {
+      if (state.run === true) return state
       const minutes =
         state.length.session > limits.session.minimum
           ? state.length.session - 1
@@ -158,6 +160,7 @@ const reducer = (state = initialState, action) => {
       return setSessionLength(state, minutes)
     }
     case type.breakLengthIncrement: {
+      if (state.run === true) return state
       const minutes =
         state.length.break < limits.break.maximum
           ? state.length.break + 1
@@ -165,6 +168,7 @@ const reducer = (state = initialState, action) => {
       return setBreakLength(state, minutes)
     }
     case type.breakLengthDecrement: {
+      if (state.run === true) return state
       const minutes =
         state.length.break > limits.break.minimum
           ? state.length.break - 1
