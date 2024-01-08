@@ -21,7 +21,7 @@ export const LengthControl = ({ session }) => {
         'flex flex-col gap-2'
       )}
     >
-      <div className='flex h-full flex-row items-center justify-around rounded bg-beta font-title text-[0.9rem] font-bold text-dark'>
+      <div className='flex h-full flex-row items-center justify-between rounded bg-beta px-3 font-title text-[0.9rem] font-bold text-dark'>
         <div>{`${session ? 'Session' : 'Break'}  Length`}</div>
         <div>{session ? length.session : length.break}</div>
       </div>
