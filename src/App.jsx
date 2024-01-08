@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { App as Calculator } from './apps/calculator/App'
 import { App as Pomodoro } from './apps/pomodoro/App'
+import { Home } from './components/Home'
 import { Layout } from './components/Layout'
 
 const router = createBrowserRouter([
@@ -9,7 +10,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <h1>Home</h1>
+        element: <Home />
       },
       {
         path: 'calculator',

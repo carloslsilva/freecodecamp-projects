@@ -1,47 +1,26 @@
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
-import { NavLink } from 'react-router-dom'
-
-const ROUTES = [
-  {
-    to: '/',
-    label: 'Home'
-  },
-  {
-    to: '/calculator',
-    label: 'Calculator'
-  },
-  {
-    to: '/pomodoro',
-    label: 'Pomodoro'
-  },
-  {
-    to: '/quote-machine',
-    label: 'Quote Machine'
-  }
-]
+import { Link, useLocation } from 'react-router-dom'
 
 export const Header = () => {
-  const navLinks = ROUTES.map(route => (
-    <li key={route.label}>
-      <NavLink
-        className={({ isActive }) =>
-          clsx(
-            !isActive && 'opacity-50 duration-300 ease-in-out hover:opacity-30',
-            isActive && 'opacity-100'
-          )
-        }
-        to={route.to}
-      >
-        {route.label}
-      </NavLink>
-    </li>
-  ))
-
+  const location = useLocation()
   return (
-    <header className='px-2 py-4'>
-      <nav>
-        <ul className='flex flex-row gap-8'>{navLinks}</ul>
-      </nav>
+    <header className='flex w-full max-w-5xl flex-row items-center justify-end px-4 py-8'>
+      {location.pathname !== '/' && (
+        <Link
+          className={clsx(
+            'flex flex-row gap-2 rounded border border-dark bg-beta px-5 py-2',
+            'animate-bounce duration-300 ease-in-out hover:opacity-70'
+          )}
+          to='/'
+        >
+          <span>
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </span>
+          <span className='font-semibold'>BACK</span>
+        </Link>
+      )}
     </header>
   )
 }

@@ -5,7 +5,7 @@ import {
   isOperatorButton
 } from '../lib/buttons'
 
-const MAX_DIGITS = 16
+const MAX_DIGITS = 14
 // const MAX_INTEGER_ON_DISPLAY = 999999999999999
 // const MIN_FLOAT_ON_DISPLAY = 0.0000000000001
 // const DIGITS_AFTER_DECIMAL = 14

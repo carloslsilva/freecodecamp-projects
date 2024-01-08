@@ -58,8 +58,15 @@ export const Footer = () => {
   ))
 
   return (
-    <footer className='flex h-[75px] flex-row items-center justify-center gap-4'>
-      <div className='opacity-40'>by Carlos Silva</div>
+    <footer className='flex flex-row items-center justify-center gap-8 px-2 py-6'>
+      <a
+        className='opacity-40'
+        href='https://www.carloslsilva.com/'
+        rel='noreferrer'
+        target='_blank'
+      >
+        by Carlos Silva
+      </a>
       <div className='flex flex-row gap-2'>{contact}</div>
     </footer>
   )
