@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { calculatorButtons } from '../lib/calculatorButtons'
+import { buttons } from '../lib/buttons'
 
 export function useCalculatorKeyPress() {
   useEffect(() => {
@@ -17,9 +17,7 @@ export function useCalculatorKeyPress() {
         case '1':
         case '0':
         case '.':
-          document
-            .getElementById(calculatorButtons.find(e => e.text === key)?.id)
-            .click()
+          document.getElementById(buttons.find(e => e.text === key)?.id).click()
           break
         case '/':
           document.getElementById('divide').click()

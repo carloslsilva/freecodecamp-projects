@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { App as Calculator } from './apps/calculator/App'
+import { App as Pomodoro } from './apps/pomodoro/App'
 import { Layout } from './components/Layout'
-import { Calculator } from './components/calculator'
-import { Pomodoro } from './components/pomodoro'
 
 const router = createBrowserRouter([
   {

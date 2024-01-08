@@ -1,57 +1,7 @@
 import { createStore } from '@reduxjs/toolkit'
-import { cloneObject, minutesToTicks } from './utils'
+import { cloneObject, minutesToTicks } from '../utils'
+import { type } from './types'
 
-// Types
-const type = {
-  breakLengthIncrement: 'break length increment',
-  breakLengthDecrement: 'break length decrement',
-  sessionLengthIncrement: 'session length increment',
-  sessionLengthDecrement: 'session length decrement',
-  reset: 'reset',
-  toggleRun: 'toggle run',
-  tick: 'tick'
-}
-
-// Actions
-export const action = {
-  sessionLengthIncrement() {
-    return {
-      type: type.sessionLengthIncrement
-    }
-  },
-  sessionLengthDecrement() {
-    return {
-      type: type.sessionLengthDecrement
-    }
-  },
-  breakLengthIncrement() {
-    return {
-      type: type.breakLengthIncrement
-    }
-  },
-  breakLengthDecrement() {
-    return {
-      type: type.breakLengthDecrement
-    }
-  },
-  reset() {
-    return {
-      type: type.reset
-    }
-  },
-  toggleRun() {
-    return {
-      type: type.toggleRun
-    }
-  },
-  tick() {
-    return {
-      type: type.tick
-    }
-  }
-}
-
-// Reducer
 const limits = {
   session: {
     maximum: 60,
@@ -144,36 +94,44 @@ const tick = state => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case type.sessionLengthIncrement: {
-      if (state.run === true) return state
-      const minutes =
-        state.length.session < limits.session.maximum
-          ? state.length.session + 1
-          : state.length.session
-      return setSessionLength(state, minutes)
+      if (state.timer.run === false) {
+        const minutes =
+          state.length.session < limits.session.maximum
+            ? state.length.session + 1
+            : state.length.session
+        return setSessionLength(state, minutes)
+      }
+      return state
     }
     case type.sessionLengthDecrement: {
-      if (state.run === true) return state
-      const minutes =
-        state.length.session > limits.session.minimum
-          ? state.length.session - 1
-          : state.length.session
-      return setSessionLength(state, minutes)
+      if (state.timer.run === false) {
+        const minutes =
+          state.length.session > limits.session.minimum
+            ? state.length.session - 1
+            : state.length.session
+        return setSessionLength(state, minutes)
+      }
+      return state
     }
     case type.breakLengthIncrement: {
-      if (state.run === true) return state
-      const minutes =
-        state.length.break < limits.break.maximum
-          ? state.length.break + 1
-          : state.length.break
-      return setBreakLength(state, minutes)
+      if (state.timer.run === false) {
+        const minutes =
+          state.length.break < limits.break.maximum
+            ? state.length.break + 1
+            : state.length.break
+        return setBreakLength(state, minutes)
+      }
+      return state
     }
     case type.breakLengthDecrement: {
-      if (state.run === true) return state
-      const minutes =
-        state.length.break > limits.break.minimum
-          ? state.length.break - 1
-          : state.length.break
-      return setBreakLength(state, minutes)
+      if (state.timer.run === false) {
+        const minutes =
+          state.length.break > limits.break.minimum
+            ? state.length.break - 1
+            : state.length.break
+        return setBreakLength(state, minutes)
+      }
+      return state
     }
     case type.reset: {
       return cloneObject(initialState)

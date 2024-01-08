@@ -1,12 +1,11 @@
-import { action } from '@/lib/pomodoroStore'
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import { useDispatch, useSelector } from 'react-redux'
+import { action } from '../lib/state/actions'
 
 export const LengthControl = ({ session }) => {
   const length = useSelector(state => state.length)
-
   const dispatch = useDispatch()
 
   const incrementSession = () => dispatch(action.sessionLengthIncrement())

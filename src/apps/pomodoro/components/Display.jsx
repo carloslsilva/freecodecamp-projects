@@ -1,10 +1,9 @@
-import { ticksToMinutesSeconds } from '@/lib/utils'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
+import { ticksToMinutesSeconds } from '../lib/utils'
 
 export const Display = () => {
   const timer = useSelector(state => state.timer)
-
   return (
     <div
       className={clsx(

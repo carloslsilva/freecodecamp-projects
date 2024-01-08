@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useId } from 'react'
 import { useSelector } from 'react-redux'
 
-export const Alarm = () => {
+export function useAlarm() {
   const audioId = useId()
   const timer = useSelector(state => state.timer)
 
@@ -25,5 +25,5 @@ export const Alarm = () => {
     }
   }, [timer.ticks, timer.run, alarmPlay, alarmStop])
 
-  return <audio src='alarm.mp3' type='audio/mp3' id={audioId} />
+  return audioId
 }

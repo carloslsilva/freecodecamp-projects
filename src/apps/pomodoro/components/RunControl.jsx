@@ -1,11 +1,10 @@
-import { action } from '@/lib/pomodoroStore'
 import { faPause, faPlay, faSync } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDispatch } from 'react-redux'
+import { action } from '../lib/state/actions'
 
 export const RunControl = () => {
   const dispatch = useDispatch()
-
   return (
     <div className='col-start-1 col-end-5 row-start-6'>
       <div className='flex h-full flex-row gap-2'>

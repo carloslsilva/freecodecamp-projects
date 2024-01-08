@@ -81,20 +81,15 @@ const operatorButtons = [
     id: 'equals',
     text: '=',
     className: 'bg-gamma row-start-3 row-end-5 col-start-5'
+  },
+  {
+    id: 'clear',
+    text: 'C',
+    className: 'bg-beta row-start-1 row-end-3 col-start-5'
   }
 ]
 
-const cancelButton = {
-  id: 'clear',
-  text: 'C',
-  className: 'bg-beta row-start-1 row-end-3 col-start-5'
-}
-
-export const calculatorButtons = [
-  ...digitButtons,
-  ...operatorButtons,
-  cancelButton
-]
+export const buttons = [...digitButtons, ...operatorButtons]
 
 export const isDigitButton = id =>
   digitButtons.map(button => button.id).includes(id)
