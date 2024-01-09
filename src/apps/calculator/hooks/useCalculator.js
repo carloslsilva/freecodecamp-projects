@@ -43,7 +43,10 @@ function handleDigit(state, digit) {
 }
 
 function handleOperator(state, operator) {
-  const operation = (accumulator, input, operator) => {
+  const operation = state => {
+    let accumulator = state.accumulator
+    let input = parseFloat(state.input)
+    let operator = state.operator
     let update = false
     let error = false
     switch (operator) {
@@ -108,11 +111,7 @@ function handleOperator(state, operator) {
     return { ...state, operator }
   }
 
-  let [accumulator, input, update, error] = operation(
-    state.accumulator,
-    parseFloat(state.input),
-    state.operator
-  )
+  let [accumulator, input, update, error] = operation(state)
 
   if (error === true) {
     return { initialState, display: 'ERROR' }
