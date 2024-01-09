@@ -81,7 +81,7 @@ function handleOperation(state, operator) {
       display: parseAccumulator(accumulator)
     }
   } else {
-    return { ...state, input: '', accumulator: input, operator }
+    return { ...state, accumulator: input, input: '', operator }
   }
 }
 
