@@ -11,7 +11,7 @@ export const Home = () => (
         </h1>
         <p className='text-base leading-relaxed'>
           This app incorporates three projects from the freeCodeCamp Front-End
-          Development Libraries Curriculum, originally developed and showcased
+          Development Libraries curriculum, originally developed and showcased
           on CodePen.
         </p>
         <p>
