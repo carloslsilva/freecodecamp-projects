@@ -44,40 +44,40 @@ function handleDigit(state, digit) {
 
 function handleOperator(state, operator) {
   const operation = (accumulator, input, operator) => {
-    let updateDisplay = false
+    let update = false
     let error = false
     switch (operator) {
       case 'add': {
         accumulator += input
-        updateDisplay = true
+        update = true
         break
       }
       case 'subtract': {
         accumulator -= input
-        updateDisplay = true
+        update = true
         break
       }
       case 'multiply': {
         accumulator *= input
-        updateDisplay = true
+        update = true
         break
       }
       case 'divide': {
         if (input !== 0) {
           accumulator /= input
-          updateDisplay = true
+          update = true
         } else {
           error = true
         }
         break
       }
       default: {
-        updateDisplay = false
+        update = false
         break
       }
     }
 
-    return [accumulator, input, updateDisplay, error]
+    return [accumulator, input, update, error]
   }
 
   const parseAccumulator = accumulator => {
@@ -108,7 +108,7 @@ function handleOperator(state, operator) {
     return { ...state, operator }
   }
 
-  let [accumulator, input, updateDisplay, error] = operation(
+  let [accumulator, input, update, error] = operation(
     state.accumulator,
     parseFloat(state.input),
     state.operator
@@ -116,7 +116,7 @@ function handleOperator(state, operator) {
 
   if (error === true) {
     return { initialState, display: 'ERROR' }
-  } else if (updateDisplay === true) {
+  } else if (update === true) {
     return {
       accumulator: accumulator,
       input: '',
