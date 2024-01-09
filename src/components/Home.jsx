@@ -10,9 +10,14 @@ export const Home = () => (
           FreeCodeCamp Front End Projects
         </h1>
         <p className='text-base leading-relaxed'>
-          This app includes three projects from the Front End Development
-          Libraries Curriculum. They were developed using HTML, CSS, JavaScript,
-          React, React Hooks, Redux, React Router, and Tailwind CSS.
+          This app incorporates three projects from the freeCodeCamp Front-End
+          Development Libraries Curriculum, originally developed and showcased
+          on CodePen.
+        </p>
+        <p>
+          I have recently amalgamated and updated these projects into a Vite
+          project, developed using React, React Hooks, Redux, React Router, and
+          Tailwind CSS.
         </p>
         <a
           className='mt-4 inline-flex items-center gap-2 text-brand-linkedin duration-300 ease-in-out hover:opacity-30'
@@ -42,7 +47,10 @@ export const Home = () => (
 
 const Project = ({ to, children }) => (
   <li className='mb-1 w-1/2 lg:w-1/3'>
-    <Link className='duration-300 ease-in-out hover:opacity-30' to={to}>
+    <Link
+      className='duration-300 ease-in-out hover:opacity-30 active:animate-ping'
+      to={to}
+    >
       {children}
     </Link>
   </li>

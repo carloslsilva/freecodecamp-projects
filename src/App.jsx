@@ -4,6 +4,7 @@ import { App as Pomodoro } from './apps/pomodoro/App'
 import { App as QuoteMachine } from './apps/quote-machine/App'
 import { Home } from './components/Home'
 import { Layout } from './components/Layout'
+import { PageTitle } from './components/PageTitle'
 
 const router = createBrowserRouter([
   {
@@ -11,19 +12,39 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />
+        element: (
+          <>
+            <PageTitle title='freeCodeCamp Projects' />
+            <Home />
+          </>
+        )
       },
       {
         path: 'calculator',
-        element: <Calculator />
+        element: (
+          <>
+            <PageTitle title='Calculator' />
+            <Calculator />
+          </>
+        )
       },
       {
         path: 'pomodoro',
-        element: <Pomodoro />
+        element: (
+          <>
+            <PageTitle title='Pomodoro Clock' />
+            <Pomodoro />
+          </>
+        )
       },
       {
         path: 'quote-machine',
-        element: <QuoteMachine />
+        element: (
+          <>
+            <PageTitle title='Quote Machine' />
+            <QuoteMachine />
+          </>
+        )
       }
     ]
   }
