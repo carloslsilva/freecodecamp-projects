@@ -18,6 +18,73 @@ const initialState = {
   operator: undefined
 }
 
+function parseAccumulator(accumulator) {
+  if (Number.isInteger(accumulator)) {
+    if (Math.abs(accumulator) > MAX_INTEGER_ON_DISPLAY) {
+      return accumulator.toExponential(FRACTION_DIGITS)
+    } else {
+      return accumulator
+    }
+  } else {
+    if (Math.abs(accumulator) < MIN_FLOAT_ON_DISPLAY) {
+      return accumulator.toExponential(FRACTION_DIGITS)
+    } else if (Math.abs(accumulator) < 1) {
+      return parseFloat(accumulator.toFixed(DIGITS_AFTER_DECIMAL))
+    } else if (accumulator.toString().length > MAX_DIGITS) {
+      return accumulator.toExponential(FRACTION_DIGITS)
+    } else {
+      return accumulator
+    }
+  }
+}
+
+function handleOperation(state, operator) {
+  let accumulator = state.accumulator
+  let input = parseFloat(state.input)
+  let currentOperator = state.operator
+  let update = false
+  let error = false
+
+  switch (currentOperator) {
+    case 'add':
+      accumulator += input
+      update = true
+      break
+    case 'subtract':
+      accumulator -= input
+      update = true
+      break
+    case 'multiply':
+      accumulator *= input
+      update = true
+      break
+    case 'divide':
+      if (input !== 0) {
+        accumulator /= input
+        update = true
+      } else {
+        error = true
+      }
+      break
+    default:
+      update = false
+      break
+  }
+
+  if (error) {
+    return { ...initialState, display: 'ERROR' }
+  } else if (update) {
+    return {
+      accumulator,
+      input: '',
+      operator,
+      display: parseAccumulator(accumulator)
+    }
+  } else {
+    return { ...state, input: '', accumulator: input, operator }
+  }
+}
+
 function handleDigit(state, digit) {
   let input = state.input
 
@@ -43,66 +110,6 @@ function handleDigit(state, digit) {
 }
 
 function handleOperator(state, operator) {
-  const operation = state => {
-    let accumulator = state.accumulator
-    let input = parseFloat(state.input)
-    let operator = state.operator
-    let update = false
-    let error = false
-    switch (operator) {
-      case 'add': {
-        accumulator += input
-        update = true
-        break
-      }
-      case 'subtract': {
-        accumulator -= input
-        update = true
-        break
-      }
-      case 'multiply': {
-        accumulator *= input
-        update = true
-        break
-      }
-      case 'divide': {
-        if (input !== 0) {
-          accumulator /= input
-          update = true
-        } else {
-          error = true
-        }
-        break
-      }
-      default: {
-        update = false
-        break
-      }
-    }
-
-    return [accumulator, input, update, error]
-  }
-
-  const parseAccumulator = accumulator => {
-    if (Number.isInteger(accumulator)) {
-      if (Math.abs(accumulator) > MAX_INTEGER_ON_DISPLAY) {
-        return accumulator.toExponential(FRACTION_DIGITS)
-      } else {
-        return accumulator
-      }
-    } else {
-      if (Math.abs(accumulator) < MIN_FLOAT_ON_DISPLAY) {
-        return accumulator.toExponential(FRACTION_DIGITS)
-      } else if (Math.abs(accumulator) < 1) {
-        return parseFloat(accumulator.toFixed(DIGITS_AFTER_DECIMAL))
-      } else if (accumulator.toString().length > MAX_DIGITS) {
-        return accumulator.toExponential(FRACTION_DIGITS)
-      } else {
-        return accumulator
-      }
-    }
-  }
-
   if (operator === 'clear') {
     return { ...initialState }
   }
@@ -111,20 +118,7 @@ function handleOperator(state, operator) {
     return { ...state, operator }
   }
 
-  let [accumulator, input, update, error] = operation(state)
-
-  if (error === true) {
-    return { initialState, display: 'ERROR' }
-  } else if (update === true) {
-    return {
-      accumulator: accumulator,
-      input: '',
-      operator: operator,
-      display: parseAccumulator(accumulator)
-    }
-  } else {
-    return { ...state, input: '', accumulator: input, operator: operator }
-  }
+  return handleOperation(state, operator)
 }
 
 export function useCalculator() {
