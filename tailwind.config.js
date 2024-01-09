@@ -1,9 +1,10 @@
+import typography from '@tailwindcss/typography'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  plugins: [],
+  plugins: [typography()],
   theme: {
     extend: {
       fontFamily: {

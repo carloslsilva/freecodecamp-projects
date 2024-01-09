@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { App as Calculator } from './apps/calculator/App'
 import { App as Pomodoro } from './apps/pomodoro/App'
+import { App as QuoteMachine } from './apps/quote-machine/App'
 import { Home } from './components/Home'
 import { Layout } from './components/Layout'
 
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'quote-machine',
-        element: <h1>Quote Machine</h1>
+        element: <QuoteMachine />
       }
     ]
   }
